@@ -1,0 +1,7 @@
+{
+  "name": "video-watchlist",
+  "private": true,
+  "scripts": {
+    "start": "node server/index.js"
+  }
+}
