@@ -4,6 +4,7 @@ const TAP_MS = 280;
 const state = {
   screen: 'lists',
   lists: [],
+  listFilter: 'all',
   detail: null,
   token: '',
   filter: 'unwatched',
@@ -230,21 +231,39 @@ function posterMarkup(url, title, className) {
 }
 
 function renderLists() {
-  const cards = state.lists.map((list) => `
+  const visibleLists = state.listFilter === 'unwatched'
+    ? state.lists.filter((list) => list.unwatchedCount > 0)
+    : state.lists;
+  const needsWatchingCount = state.lists.filter((list) => list.unwatchedCount > 0).length;
+  const cards = visibleLists.map((list) => `
     <div class="list-card" role="button" tabindex="0" data-tap="list" data-token="${esc(list.shareToken)}">
       ${coverMarkup(list.coverUrl, list.name, 'cover')}
-      <div class="list-copy"><h2 class="list-name">${esc(list.name)}</h2></div>
+      <div class="list-copy">
+        <h2 class="list-name">${esc(list.name)}</h2>
+        <p class="list-meta">${list.videoCount} ${list.videoCount === 1 ? 'title' : 'titles'} · ${list.unwatchedCount} unwatched</p>
+      </div>
     </div>
   `).join('');
+  const empty = state.listFilter === 'unwatched'
+    ? 'You are caught up. None of your lists have unwatched titles.'
+    : 'Create a list for the movies, shows, and videos you want to watch.';
   app.innerHTML = `
     <main class="screen narrow">
-      <header class="topbar">
+      <header class="topbar list-topbar">
         <h1>Watchlists</h1>
         <button type="button" class="primary" data-action="go" data-href="#/lists/new">New list</button>
       </header>
+      <nav class="primary-tabs" role="tablist" aria-label="Watchlist views">
+        <button type="button" role="tab" data-action="list-filter" data-list-filter="all" aria-selected="${state.listFilter === 'all'}">
+          All lists <span>${state.lists.length}</span>
+        </button>
+        <button type="button" role="tab" data-action="list-filter" data-list-filter="unwatched" aria-selected="${state.listFilter === 'unwatched'}">
+          Needs watching <span>${needsWatchingCount}</span>
+        </button>
+      </nav>
       <p class="hint">Tap a list to open it. Double-tap a list to edit its name and cover.</p>
       <div class="list-stack">
-        ${cards || '<p class="empty">Create a list for the movies, shows, and videos you want to watch.</p>'}
+        ${cards || `<p class="empty">${empty}</p>`}
       </div>
     </main>
   `;
@@ -760,6 +779,11 @@ async function handleAction(action, element) {
   if (action === 'filter') {
     state.filter = element.dataset.filter;
     track('watched_filter_changed', { filter: state.filter }, state.token);
+    render();
+    return;
+  }
+  if (action === 'list-filter') {
+    state.listFilter = element.dataset.listFilter === 'unwatched' ? 'unwatched' : 'all';
     render();
     return;
   }

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Watchlist design system</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styleguide.css">
+</head>
+<body class="sg-page">
+  <svg class="sg-sprite" aria-hidden="true">
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18l-6-4-6 4z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21h-4v-.08A1.7 1.7 0 0 0 8.94 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.57 15 1.7 1.7 0 0 0 3 14H3v-4h.08A1.7 1.7 0 0 0 4.6 8.94a1.7 1.7 0 0 0-.34-1.88L4.2 7l2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.57 1.7 1.7 0 0 0 10 3V3h4v.08A1.7 1.7 0 0 0 15.06 4.6a1.7 1.7 0 0 0 1.88-.34L17 4.2 19.83 7l-.06.06A1.7 1.7 0 0 0 19.43 9 1.7 1.7 0 0 0 21 10h.08v4H21a1.7 1.7 0 0 0-1.6 1z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 5h16M7 12h10M10 19h4"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3m0 0L7 8m5-5 5 5M4 15v5h16v-5"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 21h20zM12 9v5M12 18h.01"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+    <symbol id="i-wifi-off" viewBox="0 0 24 24"><path d="m2 2 20 20M8.5 8.5A9 9 0 0 1 21 9M5 12a10 10 0 0 1 5-2.7M8.5 15.5a5 5 0 0 1 7 0M12 20h.01"/></symbol>
+    <symbol id="i-command" viewBox="0 0 24 24"><path d="M9 6V5a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3v14a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3z"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4zM15 9a4 4 0 0 1 0 6M18 6a8 8 0 0 1 0 12"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></symbol>
+  </svg>
+
+  <div class="sg-app-shell">
+    <aside class="sg-sidebar" aria-label="Design system navigation">
+      <a class="sg-brand" href="#overview" aria-label="Watchlist design system home">
+        <span class="sg-brand-mark" aria-hidden="true"><span></span></span>
+        <span>Watchlist</span>
+      </a>
+      <nav class="sg-side-nav">
+        <a class="is-active" href="#overview" aria-current="page"><svg><use href="#i-home"/></svg>Overview</a>
+        <a href="#foundations"><svg><use href="#i-grid"/></svg>Foundations</a>
+        <a href="#navigation"><svg><use href="#i-bookmark"/></svg>Navigation</a>
+        <a href="#actions"><svg><use href="#i-plus"/></svg>Actions</a>
+        <a href="#content"><svg><use href="#i-play"/></svg>Content</a>
+        <a href="#forms"><svg><use href="#i-settings"/></svg>Forms</a>
+        <a href="#data"><svg><use href="#i-grid"/></svg>Data</a>
+        <a href="#feedback"><svg><use href="#i-bell"/></svg>Feedback</a>
+        <a href="#overlays"><svg><use href="#i-command"/></svg>Overlays</a>
+      </nav>
+      <div class="sg-side-profile">
+        <span class="sg-avatar">BT</span>
+        <span><strong>Bradman Taylor</strong><small>Developer</small></span>
+        <button class="sg-icon-button sg-button-quiet" type="button" aria-label="Open profile menu">
+          <svg><use href="#i-more"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <div class="sg-main-column">
+      <header class="sg-topbar">
+        <a class="sg-mobile-brand" href="#overview" aria-label="Watchlist design system home">
+          <span class="sg-brand-mark" aria-hidden="true"><span></span></span>
+        </a>
+        <label class="sg-top-search">
+          <svg aria-hidden="true"><use href="#i-search"/></svg>
+          <span class="sg-visually-hidden">Search components</span>
+          <input type="search" placeholder="Search components">
+          <kbd>⌘ K</kbd>
+        </label>
+        <div class="sg-top-actions">
+          <button class="sg-icon-button sg-button-quiet" type="button" aria-label="View notifications">
+            <svg><use href="#i-bell"/></svg>
+            <span class="sg-notification-dot"></span>
+          </button>
+          <a class="sg-button sg-button-primary sg-hide-compact" href="#content">
+            <svg><use href="#i-plus"/></svg>Add title
+          </a>
+        </div>
+      </header>
+
+      <main class="sg-main">
+        <section class="sg-hero" id="overview">
+          <nav class="sg-breadcrumbs" aria-label="Breadcrumb">
+            <a href="#overview">Design system</a>
+            <svg aria-hidden="true"><use href="#i-chevron-right"/></svg>
+            <span aria-current="page">Components</span>
+          </nav>
+          <p class="sg-eyebrow">Watchlist product language</p>
+          <h1>A content-first interface with an editorial point of view.</h1>
+          <p class="sg-hero-copy">A complete, responsive component inventory for building calm and familiar media experiences. Imagery carries the energy; the interface stays focused and quiet.</p>
+          <div class="sg-inline-actions">
+            <a class="sg-button sg-button-primary" href="#foundations">Explore components</a>
+            <a class="sg-button sg-button-secondary" href="/planning/design%20guidelines.json">View guidelines</a>
+          </div>
+        </section>
+
+        <section class="sg-section" id="foundations">
+          <div class="sg-section-heading">
+            <div><p class="sg-kicker">01 — Foundations</p><h2>Visual language</h2></div>
+            <p>Neutral foundations let imagery and product content lead.</p>
+          </div>
+
+          <div class="sg-showcase-grid">
+            <article class="sg-panel sg-panel-wide">
+              <div class="sg-panel-heading"><div><h3>Color</h3><p>Core and semantic tokens</p></div><span class="sg-badge">AA contrast</span></div>
+              <div class="sg-swatches">
+                <div class="sg-swatch"><span style="--swatch:#202124"></span><strong>Ink</strong><small>#202124</small></div>
+                <div class="sg-swatch"><span style="--swatch:#686a6d"></span><strong>Secondary</strong><small>#686A6D</small></div>
+                <div class="sg-swatch"><span style="--swatch:#f7f7f5"></span><strong>Subtle</strong><small>#F7F7F5</small></div>
+                <div class="sg-swatch"><span style="--swatch:#1677a6"></span><strong>Accent</strong><small>#1677A6</small></div>
+                <div class="sg-swatch"><span style="--swatch:#2e7d32"></span><strong>Success</strong><small>#2E7D32</small></div>
+                <div class="sg-swatch"><span style="--swatch:#a15c00"></span><strong>Warning</strong><small>#A15C00</small></div>
+                <div class="sg-swatch"><span style="--swatch:#c62828"></span><strong>Danger</strong><small>#C62828</small></div>
+              </div>
+            </article>
+
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Typography</h3><p>DM Serif Display + Inter</p></div></div>
+              <div class="sg-type-sample">
+                <p class="sg-display-sample">Stories worth saving.</p>
+                <p class="sg-body-sample">Build shared watchlists, discover something new, and make movie night easier.</p>
+                <p class="sg-label-sample">LABEL · 14PX / 600</p>
+              </div>
+            </article>
+
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Spacing & shape</h3><p>An 8px base rhythm</p></div></div>
+              <div class="sg-spacing-sample" aria-label="Spacing scale from 4 to 48 pixels">
+                <span style="--space:4px">4</span><span style="--space:8px">8</span><span style="--space:12px">12</span><span style="--space:16px">16</span><span style="--space:24px">24</span><span style="--space:32px">32</span><span style="--space:48px">48</span>
+              </div>
+              <div class="sg-radius-sample">
+                <span>6</span><span>10</span><span>16</span><span>pill</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="sg-section" id="navigation">
+          <div class="sg-section-heading">
+            <div><p class="sg-kicker">02 — Navigation</p><h2>Wayfinding</h2></div>
+            <p>Keep destinations predictable and contextual actions nearby.</p>
+          </div>
+
+          <article class="sg-panel">
+            <div class="sg-panel-heading"><div><h3>App bar & tabs</h3><p>Primary screen navigation</p></div></div>
+            <div class="sg-component-frame">
+              <div class="sg-demo-appbar">
+                <button class="sg-icon-button sg-button-quiet" type="button" aria-label="Go back"><svg><use href="#i-arrow-left"/></svg></button>
+                <strong>Movies & TV</strong>
+                <span></span>
+                <button class="sg-icon-button sg-button-quiet" type="button" aria-label="Search"><svg><use href="#i-search"/></svg></button>
+                <button class="sg-icon-button sg-button-quiet" type="button" aria-label="More options"><svg><use href="#i-more"/></svg></button>
+              </div>
+              <div class="sg-tabs" role="tablist" aria-label="Movie library">
+                <button class="is-active" type="button" role="tab" aria-selected="true">Browse</button>
+                <button type="button" role="tab" aria-selected="false">My lists</button>
+                <button type="button" role="tab" aria-selected="false">Watched</button>
+              </div>
+            </div>
+          </article>
+
+          <div class="sg-showcase-grid">
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Pagination</h3><p>Long collections and tables</p></div></div>
+              <nav class="sg-pagination" aria-label="Component pages">
+                <button type="button" aria-label="Previous page"><svg><use href="#i-arrow-left"/></svg></button>
+                <button class="is-current" type="button" aria-current="page">1</button>
+                <button type="button">2</button>
+                <button type="button">3</button>
+                <span>…</span>
+                <button type="button">8</button>
+                <button type="button" aria-label="Next page"><svg><use href="#i-chevron-right"/></svg></button>
+              </nav>
+            </article>
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Bottom navigation</h3><p>Compact screens</p></div></div>
+              <nav class="sg-bottom-nav" aria-label="Mobile preview navigation">
+                <a class="is-active" href="#overview"><svg><use href="#i-home"/></svg><span>Home</span></a>
+                <a href="#content"><svg><use href="#i-search"/></svg><span>Discover</span></a>
+                <a href="#content"><span class="sg-bottom-add"><svg><use href="#i-plus"/></svg></span><span>Add</span></a>
+                <a href="#data"><svg><use href="#i-bookmark"/></svg><span>Lists</span></a>
+                <a href="#forms"><svg><use href="#i-user"/></svg><span>You</span></a>
+              </nav>
+            </article>
+          </div>
+        </section>
+
+        <section class="sg-section" id="actions">
+          <div class="sg-section-heading">
+            <div><p class="sg-kicker">03 — Actions</p><h2>Buttons, chips & menus</h2></div>
+            <p>One obvious primary action, supported by quieter alternatives.</p>
+          </div>
+          <div class="sg-showcase-grid">
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Buttons</h3><p>Hierarchy and states</p></div></div>
+              <div class="sg-button-showcase">
+                <button class="sg-button sg-button-primary" type="button"><svg><use href="#i-plus"/></svg>Primary</button>
+                <button class="sg-button sg-button-secondary" type="button">Secondary</button>
+                <button class="sg-button sg-button-tertiary" type="button">Tertiary</button>
+                <button class="sg-button sg-button-danger" type="button">Delete</button>
+                <button class="sg-button sg-button-primary" type="button" disabled>Disabled</button>
+                <button class="sg-button sg-button-secondary" type="button"><span class="sg-spinner" aria-hidden="true"></span>Loading</button>
+                <button class="sg-icon-button sg-button-secondary" type="button" aria-label="Add"><svg><use href="#i-plus"/></svg></button>
+                <span class="sg-tooltip-wrap">
+                  <button class="sg-icon-button sg-button-secondary" type="button" aria-label="More options"><svg><use href="#i-more"/></svg></button>
+                  <span class="sg-tooltip" role="tooltip">More options</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Chips & badges</h3><p>Filters and compact status</p></div></div>
+              <div class="sg-chip-showcase">
+                <button class="sg-chip is-selected" type="button"><svg><use href="#i-check"/></svg>All titles</button>
+                <button class="sg-chip" type="button">Movies</button>
+                <button class="sg-chip" type="button">TV shows</button>
+                <button class="sg-chip" type="button">Drama <svg><use href="#i-close"/></svg></button>
+              </div>
+              <div class="sg-badge-showcase">
+                <span class="sg-badge">Draft</span>
+                <span class="sg-badge sg-badge-success">Watched</span>
+                <span class="sg-badge sg-badge-warning">Expiring soon</span>
+                <span class="sg-badge sg-badge-danger">Unavailable</span>
+                <span class="sg-count-badge">12</span>
+              </div>
+            </article>
+
+            <article class="sg-panel sg-panel-wide">
+              <div class="sg-panel-heading"><div><h3>Menu</h3><p>Contextual commands</p></div></div>
+              <div class="sg-menu" role="menu" aria-label="List actions">
+                <button type="button" role="menuitem"><svg><use href="#i-play"/></svg><span><strong>Play next</strong><small>Move to the top of your queue</small></span><kbd>⌘↵</kbd></button>
+                <button type="button" role="menuitem"><svg><use href="#i-bookmark"/></svg><span><strong>Save to a list</strong></span><kbd>S</kbd></button>
+                <button type="button" role="menuitem"><svg><use href="#i-upload"/></svg><span><strong>Share title</strong></span></button>
+                <hr>
+                <button class="is-danger" type="button" role="menuitem"><svg><use href="#i-close"/></svg><span><strong>Remove from library</strong></span></button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="sg-section" id="content">
+          <div class="sg-section-heading">
+            <div><p class="sg-kicker">04 — Content</p><h2>Cards & collections</h2></div>
+            <button class="sg-button sg-button-secondary" type="button">View all</button>
+          </div>
+
+          <article class="sg-panel sg-shelf-panel">
+            <div class="sg-panel-heading"><div><h3>Poster shelf</h3><p>Scrolls horizontally on compact screens</p></div></div>
+            <div class="sg-poster-shelf">
+              <article class="sg-poster-card">
+                <div class="sg-poster sg-poster-one"><span class="sg-poster-overline">A film by</span><strong>After<br>the Rain</strong><small>2:04:18</small></div>
+                <h4>After the Rain</h4><p>Drama · 2026</p>
+              </article>
+              <article class="sg-poster-card">
+                <div class="sg-poster sg-poster-two"><span class="sg-poster-overline">Original series</span><strong>North<br>Line</strong><small>8 episodes</small></div>
+                <h4>North Line</h4><p>Thriller · Series</p>
+              </article>
+              <article class="sg-poster-card">
+                <div class="sg-poster sg-poster-three"><span class="sg-poster-overline">An odyssey</span><strong>Last<br>Light</strong><small>1:48:32</small></div>
+                <h4>Last Light</h4><p>Adventure · 2025</p>
+              </article>
+              <article class="sg-poster-card">
+                <div class="sg-poster sg-poster-four"><span class="sg-poster-overline">Documentary</span><strong>Deep<br>Blue</strong><small>56 min</small></div>
+                <h4>Deep Blue</h4><p>Nature · 2026</p>
+              </article>
+              <article class="sg-poster-card">
+                <div class="sg-poster sg-poster-five"><span class="sg-poster-overline">A new comedy</span><strong>Good<br>Company</strong><small>1:37:11</small></div>
+                <h4>Good Company</h4><p>Comedy · 2024</p>
+              </article>
+            </div>
+          </article>
+
+          <div class="sg-showcase-grid">
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>List card</h3><p>Saved collection</p></div></div>
+              <button class="sg-list-card" type="button">
+                <span class="sg-list-art"><i></i><i></i><i></i></span>
+                <span class="sg-list-copy"><strong>Friday night favorites</strong><small>18 titles · Updated yesterday</small><span><span class="sg-avatar sg-avatar-small">BT</span> Shared with 3 people</span></span>
+                <svg><use href="#i-chevron-right"/></svg>
+              </button>
+            </article>
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Metric cards</h3><p>Dashboard summary</p></div></div>
+              <div class="sg-metrics">
+                <div><small>Titles watched</small><strong>128</strong><span class="sg-positive">↑ 12%</span></div>
+                <div><small>Hours saved</small><strong>246</strong><span>All time</span></div>
+                <div><small>Shared lists</small><strong>08</strong><span>3 active</span></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="sg-section" id="forms">
+          <div class="sg-section-heading">
+            <div><p class="sg-kicker">05 — Forms</p><h2>Inputs & selection</h2></div>
+            <p>Persistent labels, clear help, and errors beside the source.</p>
+          </div>
+          <div class="sg-showcase-grid">
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Text fields</h3><p>Default, error, and search</p></div></div>
+              <form class="sg-form" action="#">
+                <label class="sg-field"><span>List name</span><input type="text" value="Friday night favorites"><small>Use a name everyone will recognize.</small></label>
+                <label class="sg-field sg-field-error"><span>Share link</span><input type="url" value="not-a-valid-link" aria-invalid="true" aria-describedby="url-error"><small id="url-error">Enter a complete link beginning with https://</small></label>
+                <label class="sg-search-field"><svg><use href="#i-search"/></svg><span class="sg-visually-hidden">Search movies and TV</span><input type="search" placeholder="Search movies and TV"><button type="button" aria-label="Clear search"><svg><use href="#i-close"/></svg></button></label>
+                <label class="sg-field"><span>Notes <small>Optional</small></span><textarea placeholder="Why should everyone watch this?"></textarea><small>0 / 280 characters</small></label>
+              </form>
+            </article>
+
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Selection controls</h3><p>Choice, range, and upload</p></div></div>
+              <form class="sg-form" action="#">
+                <label class="sg-field"><span>Genre</span><span class="sg-select-wrap"><select><option>Drama</option><option>Comedy</option><option>Documentary</option></select><svg><use href="#i-chevron-down"/></svg></span></label>
+                <fieldset class="sg-fieldset">
+                  <legend>Who can edit?</legend>
+                  <label><input type="radio" name="editing" checked><span>Everyone with the link</span></label>
+                  <label><input type="radio" name="editing"><span>Only me</span></label>
+                </fieldset>
+                <div class="sg-check-row"><label><input type="checkbox" checked><span>Notify me about updates</span></label><label class="sg-switch"><input type="checkbox" checked><span aria-hidden="true"></span><b>Public list</b></label></div>
+                <label class="sg-field"><span>Release year</span><input type="range" min="1920" max="2026" value="2020"><small class="sg-range-labels"><span>1920</span><strong>2020</strong><span>2026</span></small></label>
+                <label class="sg-upload"><svg><use href="#i-upload"/></svg><strong>Upload cover art</strong><span>PNG or JPG up to 5MB</span><input type="file" accept="image/png,image/jpeg"></label>
+              </form>
+            </article>
+
+            <article class="sg-panel sg-panel-wide">
+              <div class="sg-panel-heading"><div><h3>Search & filters</h3><p>Discovery toolbar</p></div></div>
+              <div class="sg-filter-bar">
+                <label class="sg-search-field"><svg><use href="#i-search"/></svg><span class="sg-visually-hidden">Search library</span><input type="search" value="adventure"><button type="button" aria-label="Clear search"><svg><use href="#i-close"/></svg></button></label>
+                <button class="sg-button sg-button-secondary" type="button"><svg><use href="#i-filter"/></svg>Filters <span class="sg-count-badge">2</span></button>
+                <span class="sg-select-wrap sg-sort-select"><select aria-label="Sort results"><option>Recently added</option><option>Title</option><option>Release year</option></select><svg><use href="#i-chevron-down"/></svg></span>
+              </div>
+              <div class="sg-chip-showcase">
+                <button class="sg-chip is-selected" type="button">Genre: Adventure <svg><use href="#i-close"/></svg></button>
+                <button class="sg-chip is-selected" type="button">Unwatched <svg><use href="#i-close"/></svg></button>
+                <button class="sg-button sg-button-tertiary sg-button-small" type="button">Clear all</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="sg-section" id="data">
+          <div class="sg-section-heading">
+            <div><p class="sg-kicker">06 — Data display</p><h2>Tables, lists & charts</h2></div>
+            <p>Scannable density with clear hierarchy and quiet dividers.</p>
+          </div>
+          <article class="sg-panel">
+            <div class="sg-panel-heading"><div><h3>Title inventory</h3><p>Table with sorting and selection</p></div><button class="sg-button sg-button-secondary sg-button-small" type="button">Export</button></div>
+            <div class="sg-table-wrap">
+              <table class="sg-table">
+                <thead><tr><th><input type="checkbox" aria-label="Select all titles"></th><th><button type="button">Title <span>↓</span></button></th><th>Type</th><th>Status</th><th>Rating</th><th>Added</th><th><span class="sg-visually-hidden">Actions</span></th></tr></thead>
+                <tbody>
+                  <tr><td><input type="checkbox" aria-label="Select After the Rain"></td><td><span class="sg-table-title"><span class="sg-mini-poster sg-poster-one"></span><span><strong>After the Rain</strong><small>2026 · 2h 4m</small></span></span></td><td>Movie</td><td><span class="sg-badge sg-badge-success">Watched</span></td><td>8.8</td><td>Oct 12, 2026</td><td><button class="sg-icon-button sg-button-quiet" type="button" aria-label="Actions for After the Rain"><svg><use href="#i-more"/></svg></button></td></tr>
+                  <tr><td><input type="checkbox" aria-label="Select North Line"></td><td><span class="sg-table-title"><span class="sg-mini-poster sg-poster-two"></span><span><strong>North Line</strong><small>2026 · 8 episodes</small></span></span></td><td>Series</td><td><span class="sg-badge">In progress</span></td><td>9.1</td><td>Oct 08, 2026</td><td><button class="sg-icon-button sg-button-quiet" type="button" aria-label="Actions for North Line"><svg><use href="#i-more"/></svg></button></td></tr>
+                  <tr><td><input type="checkbox" aria-label="Select Last Light"></td><td><span class="sg-table-title"><span class="sg-mini-poster sg-poster-three"></span><span><strong>Last Light</strong><small>2025 · 1h 48m</small></span></span></td><td>Movie</td><td><span class="sg-badge sg-badge-warning">Expiring</span></td><td>8.4</td><td>Sep 27, 2026</td><td><button class="sg-icon-button sg-button-quiet" type="button" aria-label="Actions for Last Light"><svg><use href="#i-more"/></svg></button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <div class="sg-showcase-grid">
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Activity list</h3><p>Recent collaboration</p></div></div>
+              <ul class="sg-activity-list">
+                <li><span class="sg-avatar">AM</span><span><strong>Alex added North Line</strong><small>To Friday night favorites · 8m</small></span><span class="sg-mini-poster sg-poster-two"></span></li>
+                <li><span class="sg-avatar sg-avatar-warm">JT</span><span><strong>Jamie finished After the Rain</strong><small>Rated 5 stars · 2h</small></span><span class="sg-mini-poster sg-poster-one"></span></li>
+                <li><span class="sg-avatar sg-avatar-dark">BT</span><span><strong>You shared a list</strong><small>With Morgan and Taylor · Yesterday</small></span><svg><use href="#i-upload"/></svg></li>
+              </ul>
+            </article>
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Viewing activity</h3><p>Last six months</p></div><strong class="sg-chart-total">246h</strong></div>
+              <div class="sg-chart" aria-label="Bar chart showing viewing hours from May through October">
+                <div style="--bar:42%"><span>18</span><i></i><small>May</small></div>
+                <div style="--bar:62%"><span>32</span><i></i><small>Jun</small></div>
+                <div style="--bar:52%"><span>26</span><i></i><small>Jul</small></div>
+                <div style="--bar:78%"><span>48</span><i></i><small>Aug</small></div>
+                <div style="--bar:68%"><span>39</span><i></i><small>Sep</small></div>
+                <div style="--bar:96%"><span>58</span><i></i><small>Oct</small></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="sg-section" id="feedback">
+          <div class="sg-section-heading">
+            <div><p class="sg-kicker">07 — Feedback</p><h2>Messages & states</h2></div>
+            <p>Explain what happened and offer the clearest next step.</p>
+          </div>
+          <div class="sg-alert-stack">
+            <div class="sg-alert sg-alert-info" role="status"><svg><use href="#i-info"/></svg><span><strong>Your list is ready to share</strong><small>Anyone with the link can view and add titles.</small></span><button type="button">Copy link</button><button class="sg-icon-button sg-button-quiet" type="button" aria-label="Dismiss"><svg><use href="#i-close"/></svg></button></div>
+            <div class="sg-alert sg-alert-success" role="status"><svg><use href="#i-check"/></svg><span><strong>Changes saved</strong><small>Your updates are visible to everyone on this list.</small></span></div>
+            <div class="sg-alert sg-alert-warning" role="alert"><svg><use href="#i-alert"/></svg><span><strong>Two titles expire this week</strong><small>Watch them before they leave your services.</small></span><button type="button">Review</button></div>
+            <div class="sg-alert sg-alert-danger" role="alert"><svg><use href="#i-alert"/></svg><span><strong>We could not save your changes</strong><small>Check your connection and try again.</small></span><button type="button">Try again</button></div>
+          </div>
+
+          <div class="sg-showcase-grid">
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Progress & loading</h3><p>Known and unknown duration</p></div></div>
+              <div class="sg-progress-group">
+                <div><span><strong>Importing titles</strong><small>68%</small></span><progress value="68" max="100">68%</progress></div>
+                <div class="sg-loading-line"><span class="sg-spinner"></span><span><strong>Finding recommendations</strong><small>This usually takes a few seconds.</small></span></div>
+                <div class="sg-skeleton-card" aria-label="Loading content">
+                  <span></span><div><i></i><i></i><i></i></div>
+                </div>
+              </div>
+            </article>
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Toast</h3><p>Brief, nonblocking confirmation</p></div></div>
+              <div class="sg-toast" role="status"><svg><use href="#i-check"/></svg><span>Added to Friday night favorites</span><button type="button">Undo</button></div>
+            </article>
+          </div>
+
+          <div class="sg-state-grid">
+            <article class="sg-state"><span class="sg-state-illustration sg-empty-art"><i></i><i></i><i></i></span><h3>Your list is ready</h3><p>Add your first movie or show to start planning.</p><button class="sg-button sg-button-primary" type="button">Add a title</button></article>
+            <article class="sg-state"><span class="sg-state-icon"><svg><use href="#i-alert"/></svg></span><h3>Something went wrong</h3><p>We could not load this list. Your changes are safe.</p><button class="sg-button sg-button-secondary" type="button">Try again</button></article>
+            <article class="sg-state"><span class="sg-state-icon"><svg><use href="#i-wifi-off"/></svg></span><h3>You’re offline</h3><p>Previously loaded titles are still available.</p><button class="sg-button sg-button-secondary" type="button">Reconnect</button></article>
+          </div>
+        </section>
+
+        <section class="sg-section" id="media">
+          <div class="sg-section-heading">
+            <div><p class="sg-kicker">08 — Media</p><h2>Playback controls</h2></div>
+            <p>High-contrast controls over imagery with full keyboard support.</p>
+          </div>
+          <div class="sg-media-player">
+            <div class="sg-player-art"><span></span><span></span><i></i></div>
+            <button class="sg-player-play" type="button" aria-label="Play After the Rain"><svg><use href="#i-play"/></svg></button>
+            <div class="sg-player-title"><small>Now playing</small><strong>After the Rain</strong></div>
+            <div class="sg-player-controls">
+              <button type="button" aria-label="Pause"><span class="sg-pause-icon"></span></button>
+              <span>42:16</span><input type="range" min="0" max="7458" value="2536" aria-label="Playback position"><span>2:04:18</span>
+              <button type="button" aria-label="Volume"><svg><use href="#i-volume"/></svg></button>
+              <button type="button" aria-label="Captions">CC</button>
+              <button type="button" aria-label="Full screen"><svg><use href="#i-expand"/></svg></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="sg-section" id="overlays">
+          <div class="sg-section-heading">
+            <div><p class="sg-kicker">09 — Overlays</p><h2>Focused workflows</h2></div>
+            <p>Use elevation only when content truly sits above the page.</p>
+          </div>
+          <div class="sg-showcase-grid">
+            <article class="sg-panel sg-overlay-stage">
+              <div class="sg-static-modal" role="dialog" aria-labelledby="modal-title">
+                <div class="sg-modal-heading"><div><span class="sg-modal-icon"><svg><use href="#i-bookmark"/></svg></span><h3 id="modal-title">Create a new list</h3><p>Collect recommendations and invite friends to add their own.</p></div><button class="sg-icon-button sg-button-quiet" type="button" aria-label="Close dialog"><svg><use href="#i-close"/></svg></button></div>
+                <label class="sg-field"><span>List name</span><input type="text" placeholder="e.g. Halloween favorites"></label>
+                <div class="sg-modal-actions"><button class="sg-button sg-button-tertiary" type="button">Cancel</button><button class="sg-button sg-button-primary" type="button">Create list</button></div>
+              </div>
+            </article>
+            <article class="sg-panel sg-overlay-stage sg-sheet-stage">
+              <div class="sg-static-sheet">
+                <span class="sg-sheet-handle"></span>
+                <div class="sg-panel-heading"><div><h3>Filter titles</h3><p>12 results match</p></div><button class="sg-button sg-button-tertiary sg-button-small" type="button">Reset</button></div>
+                <fieldset class="sg-fieldset">
+                  <legend>Availability</legend>
+                  <label><input type="checkbox" checked><span>Included with subscription</span></label>
+                  <label><input type="checkbox"><span>Free with ads</span></label>
+                  <label><input type="checkbox"><span>Rent or buy</span></label>
+                </fieldset>
+                <button class="sg-button sg-button-primary sg-button-full" type="button">Show 12 titles</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="sg-showcase-grid">
+            <article class="sg-panel">
+              <div class="sg-panel-heading"><div><h3>Authentication</h3><p>Focused single-column entry</p></div></div>
+              <form class="sg-auth-card" action="#">
+                <span class="sg-brand-mark" aria-hidden="true"><span></span></span>
+                <h3>Welcome back</h3><p>Sign in to continue to your watchlists.</p>
+                <label class="sg-field"><span>Email address</span><input type="email" placeholder="you@example.com" autocomplete="email"></label>
+                <label class="sg-field"><span>Password <a href="#overlays">Forgot password?</a></span><input type="password" value="password" autocomplete="current-password"></label>
+                <button class="sg-button sg-button-primary sg-button-full" type="submit">Sign in</button>
+                <small>New to Watchlist? <a href="#overlays">Create an account</a></small>
+              </form>
+            </article>
+            <article class="sg-panel sg-command-stage">
+              <div class="sg-panel-heading"><div><h3>Command palette</h3><p>Keyboard-first navigation</p></div><kbd>⌘ K</kbd></div>
+              <div class="sg-command">
+                <label><svg><use href="#i-search"/></svg><span class="sg-visually-hidden">Type a command</span><input type="search" placeholder="Type a command or search…"><kbd>esc</kbd></label>
+                <small>Quick actions</small>
+                <button type="button"><span><svg><use href="#i-plus"/></svg>Create a new list</span><kbd>⌘ N</kbd></button>
+                <button class="is-selected" type="button"><span><svg><use href="#i-search"/></svg>Search all titles</span><kbd>⌘ F</kbd></button>
+                <button type="button"><span><svg><use href="#i-user"/></svg>Open profile</span><kbd>G P</kbd></button>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="sg-footer">
+        <span class="sg-brand"><span class="sg-brand-mark" aria-hidden="true"><span></span></span><span>Watchlist</span></span>
+        <p>Editorial media design system · Version 1.0</p>
+        <a href="#overview">Back to top ↑</a>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

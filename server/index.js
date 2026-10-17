@@ -43,14 +43,20 @@ const propertyAllow = {
 const staticFiles = new Map([
   ['/', 'index.html'],
   ['/index.html', 'index.html'],
+  ['/styleguide', 'styleguide.html'],
+  ['/styleguide.html', 'styleguide.html'],
   ['/css/app.css', 'css/app.css'],
+  ['/css/editorial-theme.css', 'css/editorial-theme.css'],
+  ['/css/styleguide.css', 'css/styleguide.css'],
   ['/js/app.js', 'js/app.js'],
+  ['/planning/design%20guidelines.json', 'planning/design guidelines.json'],
 ]);
 
 const types = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
   '.svg': 'image/svg+xml',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
